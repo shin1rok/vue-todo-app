@@ -1,6 +1,11 @@
 <template>
   <div id="todo-item">
-    <li>{{todo}}</li>
+    <li>
+      {{todo.title}}
+      <button @click="$emit('remove', todo.id)">
+        X
+      </button>
+    </li>
   </div>
 </template>
 
@@ -9,7 +14,10 @@
   export default {
     name: 'TodoItem',
     props: {
-      todo: String
+      todo: {
+        type: Object,
+        required: true
+      }
     }
   }
 </script>
